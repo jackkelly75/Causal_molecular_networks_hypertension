@@ -1,6 +1,6 @@
-# Causal
+# Causal molecular networks
 
-
+##### List of files in each directory
 
 | Folder name  | File name | Description |
 | ----------- | ----------- | ----------- |
