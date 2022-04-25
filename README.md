@@ -15,13 +15,28 @@
 |    |  3_clumping_results.R  | Identify how many SNPs are associated with each probe before and after clumping    |
 | 3_preparing_data   |        |        |
 |    |   1_Sorting_individual_level.sh     |   get the clumped SNPs and extract individual level data for these     |
-|    |    2_Preparing_for_Causal.R    |        |
-|    |        |        |
-|    |        |        |
-|    |        |        |
-|    |        |        |
+|    |    2_Preparing_for_Causal.R   |   remove the probes that don't have any SNPs associated with them after clumping   |
+|    | 3_Getting_data_size.R | Get the number of probes for each chromsome file (not being used as not concerened with chromosome information)  |
+|    |    4_SVA_prop_var_testing.R | Identify the best number of SV using proportion of variance explained  |
+|    |     5.1_remove SVA+batch.R   | Control for SVA and batch effects at the same time using limma |
+|    | 5.2_remove SVA no batch.R  |  Control for SVA using limma  |
+|    | 5_remove_batch_effects.R  |  Remove the effect of sex, age and transplant status using limma, then calculate SVs and remove using limma   |
+|    | 6_map_to_ID.R  |  Map gene to ID, if any duplicate then only keep highest MAD gene |
 | 4_clustering_data   |        |        |
-|    |        |        |
-|    |        |        |
+|    |  1_hierachical_clustering_TOM.R      | Generate topological overlap matrix for the data  |
+|    | 2_hierachical_clustering.R  | WGCNA clustering followed by k-means  |
 | 5_MRPC   |        |        |
-|    |        |        |
+|    |  1_genotype_data.R    |  For each gene in a module, get the SNPs associated with them created previously and make the R object for analysis    |
+|    | 2_MRPC.R  |  Run MRPC with dualPC on each module   |
+|    |  3_Identify_important_networks.R | Searches through results of MRPC on each modules and gives vectors with name of modules with causal predictors of hypertension and number of genes in network  |
+|    | 4_plotting.R  | plotting the important networks with igraph |
+|    | 5_speed_test.R  |  Run MRPC and our method on all modules to get running time |
+|    | 6_plot_speed_test.R  | Plot the times for MRPC and our method to visualise the running time |
+|    |  MRdualPC.R |  R file containing the MRdualPC functions for running   |
+| 6_shiny   |        |        |
+|    |  1_shiny_plotting.R  |   Create the data for shiny app and generate the interactive networks in Rstudio     |
+|    | server.R  |   server file for deploying shiny app  |
+|    | ui.R  |  ui file for deploying shiny app  |
+
+
+
